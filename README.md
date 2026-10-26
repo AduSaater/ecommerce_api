@@ -50,6 +50,19 @@ To test authenticated endpoints in Swagger UI:
 3. Click the **Authorize** button (top right of Swagger UI).
 4. Enter your token into the `JWT-auth` field and click **Authorize**.
 
+## 🚀 Deploying to Render
+
+Create a Render **Web Service** from the repository and configure:
+
+- **Build command:** `npm ci && npm run build`
+- **Start command:** `npm start`
+
+Set the required environment variables in Render's service settings (`DATABASE_URL`,
+`JWT_SECRET`, `REFRESH_TOKEN_SECRET`, `CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_API_KEY`,
+`CLOUDINARY_API_SECRET`, and `PAYSTACK_SECRET_KEY`). Render supplies `PORT`
+automatically. The build command generates the Prisma Client before compiling the
+application.
+
 ---
 
 ## 🚀 Getting Started
@@ -161,4 +174,3 @@ Swagger UI will be available at: `http://localhost:3001/docs`
 - `POST /api/v1/upload/image` - Upload general image to Cloudinary (Protected)
 - `POST /api/v1/upload/product/:productId` - Upload and link image directly to product (Admin only)
 - `POST /api/v1/upload/category/:categoryId` - Upload and link image directly to category (Admin only)
-
